@@ -8,11 +8,13 @@ const sunny = document.querySelectorAll('.sun');
 sunny.forEach(element => {
     element.style.color = 'orange';
 });
+
+// Alternative method using getElementsByClassName
 // const sunny = document.getElementsByClassName('sun');
 // for(let sun of sunny) {
-//     sun.style.color = 'blue';
+//     sun.style.color = 'orange';
 // }
-// Change the class of the second <li> from to "sun" to "cloudy"
 
+// Change the class of the second <li> from to "sun" to "cloudy"
 const li = document.querySelectorAll('li');
 li[1].className = 'cloudy';
