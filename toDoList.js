@@ -3,13 +3,13 @@
 const listItemEventHandler = function (e) {
   e.preventDefault();
 
-  // If an li element is clicked, toggle the class "done" on the <li>
-  if (e.target.nodeName === "SPAN") {
-    e.target.parentNode.classList.toggle("done");
-  }
-  // If a delete link is clicked, delete the li element / remove from the DOM
-  else if (e.target.className === "delete") {
+   // If a delete link is clicked, delete the li element / remove from the DOM
+  if (e.target.className === "delete") {
     e.target.parentNode.remove();
+  }
+  // If an li element is clicked, toggle the class "done" on the <li>
+  else if (e.target.tagName === "LI" || e.target.parentElement.tagName === "LI" ) {
+    e.target.tagName === "LI" ? e.target.classList.toggle("done") : e.target.parentElement.classList.toggle("done");
   }
 }
 
@@ -53,4 +53,4 @@ addButton.addEventListener('click', addListItem);
 document.getElementsByTagName('input')[0].addEventListener('keyup', addListItem);
 
 // Add a global event handler for delete and toggle events
-document.body.addEventListener("click", listItemEventHandler);
+document.querySelector("ul").addEventListener("click", listItemEventHandler);
